@@ -71,8 +71,10 @@ function initGeometry() {
 
 	//Add your tetrahedron under this line
 	//You can reuse materials from the cube just keep in mind that it only have 4 sides
+	//tetrahedron circumsphere radius R=(sqrt(6)/4)*a, a=2*sqrt(2), source of formula:   http://www.mathematische-basteleien.de/tetrahedron.htm
+	var circumsphere = (Math.sqrt(6)/4)*(2*Math.sqrt(2));
 
-	var tempTet = new THREE.TetrahedronGeometry(1, 0);
+	var tempTet = new THREE.TetrahedronGeometry(circumsphere);
 	tempTet.materials = materials;
 	for (var i in tempTet.faces) {
 		tempTet.faces[i].materialIndex = i;

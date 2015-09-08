@@ -1,6 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
+<!-- Lab work from the course DH2320 by Moa
+Music: 06 - Party time - brena marco, Album House Techno Dance by Marco Brena
+https://www.jamendo.com/en/track/1198003/06-party-time-brena-marco
+  /-->
+
 <script id="shader-fs" type="x-shader/x-fragment">
     precision mediump float;
 
@@ -43,6 +48,9 @@
 			} 
 			a {
 				color: #0080bb;
+			}
+			#music{
+				text-align: center;
 			}			
 		</style>
 	</head>
@@ -55,6 +63,14 @@
 		<div id="canvas">
 		<canvas id="glCanvas" width="800" height="600"></canvas>
 		</div>
+
+		<div id="music">
+			<audio controls autoplay>
+ 				<source src="Marco_Brena_-_06_-_Party_time_-_brena_marco.mp3" type="audio/mpeg">
+  				Your browser does not support the audio element.
+			</audio>
+		</div>
+
 		
 		<!-- include javascript files -->
 		<script type="text/javascript" src="js/util/Detector.js"></script>
