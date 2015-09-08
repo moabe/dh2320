@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<script id="shader-fs" type="x-shader/x-fragment">
+    precision mediump float;
+
+    varying vec4 vColor;
+
+    void main(void) {
+        gl_FragColor = vColor;
+    }
+</script>
+
+<script id="shader-vs" type="x-shader/x-vertex">
+    attribute vec3 aVertexPosition;
+    attribute vec4 aVertexColor;
+
+    uniform mat4 uMVMatrix;
+    uniform mat4 uPMatrix;
+
+    varying vec4 vColor;
+
+    void main(void) {
+        gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+        vColor = aVertexColor;
+    }
+</script>
+
+	<head>
+		<title>DH2320 Lab 1 - An Introduction to WebGL and Three.js</title>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #f0f0f0;
+				margin: 0px;
+				overflow: hidden;
+			}
+			#info {
+				text-align:center;
+			}
+			#canvas {
+				text-align:center;
+			} 
+			a {
+				color: #0080bb;
+			}			
+		</style>
+	</head>
+	<body onLoad="webGLStart();">
+		<div id="info">DH2320 Lab 1 - An Introduction to WebGL and Three.js <br>
+		<button type="button" onclick="webGLStart();">WebGL</button>
+		<button type="button" onclick="startThree();">Three.js</button>
+		</div>
+		
+		<div id="canvas">
+		<canvas id="glCanvas" width="800" height="600"></canvas>
+		</div>
+		
+		<!-- include javascript files -->
+		<script type="text/javascript" src="js/util/Detector.js"></script>
+		
+		<!-- Imports for pure WebGL -->
+		<script type="text/javascript" src="js/util/gl-matrix-min.js"></script>
+		
+		<script src="js/Lab1WebGL.js"></script>
+		
+		<!-- Imports for Three.js -->
+		<script type="text/javascript" src="js/util/Three.js"></script>
+		
+		<script src="js/Lab1Three.js"></script>
+	</body>
+</html>
