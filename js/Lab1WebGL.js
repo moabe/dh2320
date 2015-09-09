@@ -3,6 +3,10 @@ var gl;
  * Initialize WebGL on the given canvas
  * @param canvas The canvas used for WebGL 
  */
+
+var audio = document.getElementById("myAudio");
+//alert(vid.paused);
+
 function initWebGL(canvas) {
 	try {
 		gl = canvas.getContext("experimental-webgl");
@@ -268,10 +272,14 @@ function drawSceneWebGL() {
 	//We save the current matrix before we do changes to it for the movement of the cube.
 	mvPushMatrix();
 
-	//Rotate the cube rCube radians around the x axis
+
+		
+				//Rotate the cube rCube radians around the x axis
 	mat4.rotate(mvMatrix, rCube, [1, 0, 0]);
-	//Rotate the cube rCube/2 radians around the y axis 
+			//Rotate the cube rCube/2 radians around the y axis 
 	mat4.rotate(mvMatrix, rCube / 2, [0, 1, 0]);
+			
+
 
 	//Telling shaders what buffers and variables to use for this drawing
 	gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
@@ -327,8 +335,12 @@ function animateWebGL() {
 	var timeNow = new Date().getTime();
 	if (lastTime != 0) {
 		var elapsed = timeNow - lastTime;
-		rCube -= ((75 * elapsed) / 1000.0) * Math.PI / 180;
+
+		if(!audio.paused){
+			rCube -= ((75 * elapsed) / 1000.0) * Math.PI / 180;
+		}
 	}
+
 	lastTime = timeNow;
 }
 

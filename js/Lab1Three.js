@@ -100,8 +100,9 @@ function animateThree() {
 	var timeNow = new Date().getTime();
 	if (lastTime != 0) {
 		var elapsed = timeNow - lastTime;
-
-		rotationCube -= ((75 * elapsed) / 1000.0) * Math.PI / 180;
+		if(!audio.paused){
+			rotationCube -= ((75 * elapsed) / 1000.0) * Math.PI / 180;
+		}
 	}
 	lastTime = timeNow;
 
