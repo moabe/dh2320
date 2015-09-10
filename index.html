@@ -6,6 +6,10 @@ Music: 06 - Party time - brena marco, Album House Techno Dance by Marco Brena
 https://www.jamendo.com/en/track/1198003/06-party-time-brena-marco
   /-->
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+
 <script id="shader-fs" type="x-shader/x-fragment">
     precision mediump float;
 
@@ -65,16 +69,40 @@ https://www.jamendo.com/en/track/1198003/06-party-time-brena-marco
 		</div>
 
 		
-			<audio controls autoplay id="myAudio">
+			<audio autoplay id="myAudio">
  				<source src="Marco_Brena_-_06_-_Party_time_-_brena_marco.mp3" type="audio/mpeg">
   				Your browser does not support the audio element.
 			</audio>
 
 
 		<div id="music">
-    		<button onclick="document.getElementById('myAudio').play()">Play</button>
-    		<button onclick="document.getElementById('myAudio').pause()">Pause</button>
+			<button onclick="playPause()"><i id ="pp" class="material-icons md-48">stop</i></button>
+
+
 		</div>
+
+
+		<script> 
+			function playPause(){
+				var pp = document.getElementById("pp");
+				var mode;
+				console.log(pp.innerHTML);
+				if (pp.innerHTML == "stop"){
+					mode = "play_arrow";
+					audio.pause();
+				}
+				if (pp.innerHTML == "play_arrow"){
+					mode = "stop";
+					audio.play();
+				}
+				document.getElementById("pp").innerHTML = mode;
+
+					
+
+				    		/*<button onclick="audio.play()"><i class="material-icons md-48">play_arrow</i></button>
+    		<button onclick="audio.pause()"><i class="material-icons md-48">stop</i></button>*/
+			}
+		</script>
 		
 		<!-- include javascript files -->
 		<script type="text/javascript" src="js/util/Detector.js"></script>

@@ -223,11 +223,6 @@ function initBuffers() {
 
 	tetrahedronVertexColorBuffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, tetrahedronVertexColorBuffer);
-	/*colors = [[1.0, 0.0, 0.0, 1.0], // 1
-	[1.0, 1.0, 0.0, 1.0], // 2
-	[0.0, 1.0, 0.0, 1.0], // 3
-	[1.0, 0.5, 0.5, 1.0], // 4
-	];*/
 
 	//We expand the colors so that every vertex in the face has the same color
 	var unpackedColors = [];
